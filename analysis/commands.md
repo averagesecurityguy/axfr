@@ -9,7 +9,7 @@ Find all of the A records that have the search term in them and return them in t
 
 Find All Records
 ----------------
-Find all of the records that have the search term in them and return them in the format of `fqdn type ip`.
+Find all of the records that have the search term in them and return them in the format of `fqdn type value`.
 
     grep "search term" *.axfr | awk '{ print $1 " " $4 " " $5 }' | sed "s/.axfr:/ /" | awk '{ print $2 "." $1 " " $3 " " $4 }'
 
