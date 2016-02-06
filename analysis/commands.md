@@ -19,3 +19,12 @@ Find all of the records that have the search term in them and return them in the
 
     grep "search term" *.axfr | awk '{ print $1 " " $4 " " $5 }' | sed "s/.axfr:/ /" | awk '{ print $2 "." $1 " " $3 " " $4 }'
 
+Find SPF Records
+----------------
+Find all SPF records.
+
+    grep v=spf *.axfr | awk '{out=$1; for(i=5;i<=NF;i++){out=out" "$i}; print out}' | sort -u
+
+Find all SPF records with +all in them.
+
+    grep v=spf *.axfr | grep +all | awk '{out=$1; for(i=5;i<=NF;i++){out=out" "$i}; print out}' | sort -u
