@@ -53,6 +53,9 @@ sstats.append('')
 sorted_subs = sorted(subdomains.items(), key=lambda x: x[1], reverse=True)
 sstats.extend(['{0}: {1}'.format(s[0], s[1]) for s in sorted_subs])
 
+sncstats = ['{0}'.format(s[0]) for s in sorted_subs]
+
+
 with open('domains.txt', 'w') as f:          
     f.write('\n'.join(dstats))
 
@@ -61,3 +64,6 @@ with open('nameservers.txt', 'w') as f:
 
 with open('subdomains.txt', 'w') as f:          
     f.write('\n'.join(sstats))
+
+with open('subdomains_nc.txt', 'w') as f:
+    f.write('\n'.join(sncstats))
