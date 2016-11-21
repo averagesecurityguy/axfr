@@ -11,6 +11,7 @@ def process_file(fn):
     subs = []
     with open(fn) as f:
         for line in f:
+            line = line.strip('\r\n')
             if 'DOMAIN: ' in line:
                 domains.append(line.split(' ')[1])
             if 'NS: ' in line:
@@ -28,9 +29,9 @@ def process_file(fn):
             subdomains[s] = 1
 
 
-for fn in os.listdir('.'):
+for fn in os.listdir('data'):
     if fn.endswith('.axfr'):
-       process_file(fn)
+       process_file(os.path.join('data', fn))
 
 
 dstats = ['Domains']

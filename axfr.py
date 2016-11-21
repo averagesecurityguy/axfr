@@ -40,6 +40,6 @@ for ns in nservers:
 
 # If we have any records then write them to a file.
 if len(resp) > 2:
-    filename = '{0}.axfr'.format(domain)
+    filename = 'data/{0}.axfr'.format(domain)
     with open(filename, 'w') as f:
         f.write('\n'.join(resp))
